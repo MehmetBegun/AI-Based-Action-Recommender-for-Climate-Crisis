@@ -28,6 +28,11 @@ def clean_text(text):
 def fetch_rss():
     rss_feeds = [
         "https://yesilgazete.org/feed/",
+        "https://ekolojihaber.com/feed/",
+        "https://www.greenpeace.org/turkiye/rss/",
+        "https://www.wwf.org.tr/rss",
+        "https://www.yesilbasin.org/rss",
+        "https://www.cevredergisi.com/rss"
     ]
 
     conn = sqlite3.connect("news.db")

@@ -80,10 +80,37 @@ def categorize_news():
     
     doc_topics = lda_model.transform(X_counts)
     topic_labels = {
-        0: "İklim Değişikliği",
-        1: "Enerji",
-        2: "Biyoçeşitlilik",
-        3: "Kirlilik"
+        0: İklim Değişikliği,
+        1: Enerji,
+        2: Biyoçeşitlilik,
+        3: Kirlilik,
+        4: Küresel Isınma,
+        5: Doğal Afetler,
+        6: Tarım ve Gıda Güvenliği,
+        7: Su Kaynakları,
+        8: Hava Kirliliği,
+        9: Atık Yönetimi,
+        10: Sürdürülebilir Kalkınma,
+        11: Çevre Eğitimi,
+        12: Yenilenebilir Enerji,
+        13: Ormanlar ve Ağaçlandırma,
+        14: Plastik Kirliliği,
+        15: Ekosistem Koruma,
+        16: Çevresel Adalet,
+        17: Çevre Hukuku,
+        18: Karbon Salınımı,
+        19: Sera Gazları,
+        20: Deniz Kirliliği,
+        21: Karasal Biyoçeşitlilik,
+        22: Tükenebilir Doğal Kaynaklar,
+        23: Geri Dönüşüm,
+        24: Çevresel Etki Değerlendirmesi,
+        25: Çevre Dostu Ulaşım,
+        26: Sıfır Atık Hareketi,
+        27: Yeşil Teknolojiler,
+        28: Karbon Ayak İzi,
+        29: Çevresel Yıkımın Ekonomik Etkileri,
+        30: Toprak Kirliliği
     }
     
     conn = sqlite3.connect("news.db")

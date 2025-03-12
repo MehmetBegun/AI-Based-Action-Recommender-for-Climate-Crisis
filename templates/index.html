@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>İklim Krizi Haberleri</title>
+</head>
+<body>
+    <h1>İklim Krizi Haberleri</h1>
+
+    {% if articles %}
+        {% for article in articles %}
+            <h2><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></h2>
+            <p>{{ article.summary }}</p>
+            <p><strong>Kategori:</strong> {{ article.category }}</p>
+            <p><strong>Öneri:</strong> {{ article.suggestion }}</p>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>Gösterilecek haber bulunamadı.</p>
+    {% endif %}
+</body>
+</html>

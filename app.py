@@ -162,7 +162,8 @@ action_suggestions = {
     "Sıfır Atık Hareketi": "Atık üretimini sıfırlamak için ürünleri tekrar kullanın, gereksiz ambalajlardan kaçının.",
     "Çevre Dostu Üretim": "Çevre dostu üretim süreçlerini tercih edin, doğal kaynakları verimli kullanın.",
     "Toprak Kirliliği": "Toprağı kirleten kimyasalların kullanımını azaltın, sürdürülebilir tarım yöntemleri uygulayın.",
-    "Küresel Çevre Politikaları": "Küresel çevre anlaşmalarına destek olun, çevre politikalarına katılım sağlayarak daha yeşil bir dünya için çalışın."
+    "Küresel Çevre Politikaları": "Küresel çevre anlaşmalarına destek olun, çevre politikalarına katılım sağlayarak daha yeşil bir dünya için çalışın.",
+    "Genel": "Genel bir öneri: geri dönüşüm, tasarruf vb. konularda temel adımlar atabilirsiniz."
 }
 
 @app.route("/")

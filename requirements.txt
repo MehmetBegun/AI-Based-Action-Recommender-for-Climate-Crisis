@@ -1,0 +1,6 @@
+feedparser
+beautifulsoup4
+nltk
+scikit-learn
+flask
+sqlite3

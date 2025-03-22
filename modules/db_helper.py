@@ -24,3 +24,11 @@ def insert_news(news_list):
                     (news["title"], news["link"], news["summary"], news["category"]))
     conn.commit()
     conn.close()
+def is_news_exist(link):
+    """Belirli bir linke sahip haber veritabanında var mı kontrol eder."""
+    conn = sqlite3.connect(DB_PATH)
+    cur = conn.cursor()
+    cur.execute("SELECT 1 FROM news WHERE link = ?", (link,))
+    result = cur.fetchone()
+    conn.close()
+    return result is not None

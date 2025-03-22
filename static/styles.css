@@ -1,60 +1,99 @@
-/*yazı tipi ve sayfa düzeni */
+/* CSS Değişkenleri */
+:root {
+    --primary-color: #2f8f2f;
+    --secondary-color: #007bff;
+    --secondary-hover: #0056b3;
+    --background-color: #f7f7f7;
+    --text-color: #333;
+    --card-background: #fff;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Genel ayarlar */
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7; 
-    color: #333;
-    text-align: left;  /* Tüm metin solda */
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-/* İçerik kapsayıcısı */
-body > * {
+/* Sayfa bölümleri */
+header, main, footer {
     max-width: 800px;
     margin: 0 auto;
     padding: 1rem;
 }
 
-/* Ana başlık (h1) */
-h1 {
-    text-align: center;  
-    color: #2f8f2f;
+/* Header */
+header {
+    text-align: center;
     margin-bottom: 1.5rem;
 }
-
-/* Haber başlıkları (h2) */
-h2 {
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
-    
+header h1 {
+    color: var(--primary-color);
+    margin: 0;
 }
 
-/* Haber linki */
-h2 a {
+/* Makale konteyneri */
+.articles-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Kart (card) tasarımı */
+.card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--card-shadow);
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Kart içi başlık */
+.card header h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+.card header h2 a {
     text-decoration: none;
-    color: #007bff;
+    color: var(--secondary-color);
     transition: color 0.3s ease;
 }
-
-h2 a:hover {
-    color: #0056b3;
+.card header h2 a:hover {
+    color: var(--secondary-hover);
     text-decoration: underline;
 }
 
-/* Paragraflar */
-p {
+/* Kart içi paragraflar */
+.card p {
     margin: 0.5rem 0;
-    line-height: 1.5;
 }
 
-/* Kalın metin  */
-strong {
-    color: #555;
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #777;
 }
 
-
-hr {
-    border: none;
-    border-top: 1px solid #ccc;
-    margin: 2rem 0;
+/* Responsive düzen */
+@media (max-width: 600px) {
+    header, main, footer {
+        padding: 0.5rem;
+    }
+    .card {
+        padding: 0.75rem;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
 }

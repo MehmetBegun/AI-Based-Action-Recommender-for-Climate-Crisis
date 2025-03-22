@@ -6,7 +6,6 @@ from modules.suggestions import action_suggestions
 from modules.manuel_entry import add_manual_news 
 import sqlite3
 from flask import request, redirect, url_for
-from modules.web_scraper import fetch_iklim_haber, fetch_wwf
 
 app = Flask(__name__, template_folder="templates")
 

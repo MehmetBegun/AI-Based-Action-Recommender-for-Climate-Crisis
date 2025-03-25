@@ -126,3 +126,20 @@ footer {
         padding: 0.4rem 0.8rem;
     }
 }
+
+.add-news-btn {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.add-news-btn:hover {
+    background-color: var(--secondary-hover);
+}

@@ -6,6 +6,8 @@ from modules.suggestions import action_suggestions
 from modules.manuel_entry import add_manual_news 
 import sqlite3
 from flask import request, redirect, url_for
+from modules.web_scraper import fetch_iklim_haber
+from modules.suggestions import action_suggestions, single_action_suggestions
 
 app = Flask(__name__, template_folder="templates")
 
@@ -16,12 +18,21 @@ def home():
     cur.execute("SELECT title, link, summary, category FROM news")
     rows = cur.fetchall()
     conn.close()
-    
+
     articles = []
     for title, link, summary, category in rows:
-        if category is None:
-            category = "Genel"
-        suggestion = action_suggestions.get(category, action_suggestions["Genel"])
+        if category is None or category == "Eşleşme Yok":
+            suggestion = "Çevre dostu alışkanlıklar edinin."
+        else:
+            categories = [c.strip() for c in category.split(",")]
+            sorted_key = ", ".join(sorted(categories))
+
+            # Tek kategori ise tekli önerileri kullan
+            if len(categories) == 1:
+                suggestion = single_action_suggestions.get(categories[0], "Çevre dostu alışkanlıklar edinin.")
+            else:
+                suggestion = action_suggestions.get(sorted_key, "Çevre dostu alışkanlıklar edinin.")
+
         articles.append({
             "title": title,
             "link": link,
@@ -30,6 +41,7 @@ def home():
             "suggestion": suggestion
         })
     return render_template("index.html", articles=articles)
+
 
 @app.route("/admin", methods=["GET", "POST"])
 def admin_panel():
@@ -40,11 +52,10 @@ def admin_panel():
         add_manual_news(title, link, summary)
         return redirect(url_for("home"))
     return render_template("admin.html")
-print("------------------------------------------")
-print(app.url_map)
 
 if __name__ == "__main__":
     init_db()
     fetch_rss()
+    fetch_iklim_haber()
     categorize_news()
     app.run(debug=True)
